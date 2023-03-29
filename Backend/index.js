@@ -15,6 +15,8 @@ const { authenticate } = require("./middleware/authentacation.js");
 const app = express();
 
 app.use(express.json());
+const {admin} = require("./routes/admin");
+
 
 require("dotenv").config();
 
@@ -52,6 +54,8 @@ app.post("/register", async (req, res) => {
 
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
+
+app.use("/admin",admin);
 
   const user = await UserModel.find({ email });
 
