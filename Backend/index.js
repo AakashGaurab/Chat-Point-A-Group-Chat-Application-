@@ -2,8 +2,9 @@ const express = require("express");
 const app = express();
 require("dotenv").config
 app.use(express.json());
+const {admin} = require("./routes/admin");
 
-
+app.use("/admin",admin);
 
 
 
