@@ -4,11 +4,13 @@
 
 <h2>Login and signup page (fw23_0771)</h2>
 
-![Screenshot (169)](https://user-images.githubusercontent.com/115460277/228591020-10c879b9-70c7-4e5a-ad99-d42cabd3ab08.png)
+![Screenshot (171)](https://user-images.githubusercontent.com/115460277/228595398-e6cd1d59-b4f7-48d1-8043-73b35de01282.png)
+  
+  
 
+  ![Screenshot (172)](https://user-images.githubusercontent.com/115460277/228595466-af683247-76be-4c7e-8823-07b1f3719fcf.png)
 
-![Screenshot (170)](https://user-images.githubusercontent.com/115460277/228591042-a572a6da-fc82-4e3c-a370-daac82fc5300.png)
-
+  
 Admin Side Routes 
 
 Get all users (get Request)
