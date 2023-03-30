@@ -56,7 +56,7 @@ app.use("/user",user)
 //   }
 // });
 
-app.post("/login", async (req, res) => {
+/*app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
 app.use("/admin",admin);
@@ -89,7 +89,7 @@ app.get("/logout", async (req, res) => {
     await myredis.disconnect();
     res.send("logout successful");
   }
-});
+});*/
 
 app.listen(process.env.PORT, async () => {
   try {
