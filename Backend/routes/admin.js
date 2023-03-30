@@ -1,12 +1,13 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
-const jwt = requrie("jsonwebtoken");
+const jwt = require("jsonwebtoken");
+const app = express.Router();
 const admin = express.Router();
-
+const {UserModel} = require("../Models/user_model");
 
 app.get("/read",async(req,res)=>{
     try {
-        let data = await user_model.find({});
+        let data = await UserModel.find({});
         res.json(data);
     } catch (error) {
         res.status(404).send(error);
@@ -23,7 +24,7 @@ app.post("/create",async(req,res)=>{
         }
         else {
             try {
-                await user_model.insertMany([{name,email,password:hash,role:"Admin"}]) 
+                await UserModel.insertMany([{name,email,password:hash,role:"Admin"}]) 
                 res.send("Admin Added Succesfully");
              } catch (error) {
                 res.status(404).send(error);
@@ -36,7 +37,7 @@ app.post("/create",async(req,res)=>{
 app.put("/update",async(req,res)=>{
     let {email} = req.body;
     try {
-        await user_model.updateOne({email:email},{$set:{role:"Admin"}});
+        await UserModel.updateOne({email:email},{$set:{role:"Admin"}});
         res.send("User Updated To admin");
 
     } catch (error) {
@@ -47,7 +48,7 @@ app.put("/update",async(req,res)=>{
 
 app.delete("/delete",async(req,res)=>{
       try {
-        await user_model.deleteOne({email:email});
+        await UserModel.deleteOne({email:email});
         res.send("User Removed from Data Base");
       } catch (error) {
         res.status(404).send("Error deleting user")
