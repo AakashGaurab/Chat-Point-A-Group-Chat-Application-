@@ -1,8 +1,8 @@
 const connection = require("./config/db.js");
-const mongoose=require("mongoose")
+const mongoose = require("mongoose");
 const express = require("express");
-const {user} = require("./routes/user")
-const {admin} = require("./routes/admin")
+const { user } = require("./routes/user");
+const { admin } = require("./routes/admin");
 
 /* const bcrypt = require("bcrypt");
 
@@ -17,15 +17,14 @@ const { authenticate } = require("./middleware/authentacation.js"); */
 const app = express();
 
 app.use(express.json());
-app.use ("/admin",admin);
-app.use("/user",user)
+app.use("/admin", admin);
+app.use("/user", user);
 // const {admin} = require("./routes/admin");
-
 
 // require("dotenv").config();
 
 // const myredis = createClient({
-//   url: "redis://default:u2Pl4XkTWzqr9N1XkOUzsKZ0qnsAxqwf@redis-14012.c264.ap-south-1-1.ec2.cloud.redislabs.com:14012",
+//   url: "",
 // });
 
 // myredis.on("error", (err) => console.log("Redis Client Error", err));
