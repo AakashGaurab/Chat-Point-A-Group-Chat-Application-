@@ -1,34 +1,34 @@
-const connection = require("./config/db.js");
-
 const express = require("express");
 
 const bcrypt = require("bcrypt");
 
 const jwt = require("jsonwebtoken");
 
-const { createClient } = require("redis");
 
-const UserModel = require("./Models/user_model.js");
+const UserModel = require("./models/user_model");
 
-const { authenticate } = require("./middleware/authentacation.js");
 
-const app = express();
-
-app.use(express.json());
 const {admin} = require("./routes/admin");
 
+const {user} = require("./routes/user_routes");
 
 require("dotenv").config();
 
-const myredis = createClient({
+
+app.use("/admin",admin);
+app.use("/user",user);
+
+
+app.get("/", (req, res) => {
+  res.send("welcome user");
+});
+
+/* const myredis = createClient({
   url: "redis://default:u2Pl4XkTWzqr9N1XkOUzsKZ0qnsAxqwf@redis-14012.c264.ap-south-1-1.ec2.cloud.redislabs.com:14012",
 });
 
 myredis.on("error", (err) => console.log("Redis Client Error", err));
 
-app.get("/", (req, res) => {
-  res.send("welcome user");
-});
 
 app.get("/protected", authenticate, (req, res) => {
   res.send("only verified users can use this");
@@ -54,8 +54,6 @@ app.post("/register", async (req, res) => {
 
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
-
-app.use("/admin",admin);
 
   const user = await UserModel.find({ email });
 
@@ -85,7 +83,7 @@ app.get("/logout", async (req, res) => {
     await myredis.disconnect();
     res.send("logout successful");
   }
-});
+}); */
 
 app.listen(process.env.PORT, async () => {
   try {
