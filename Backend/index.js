@@ -3,6 +3,8 @@ const mongoose=require("mongoose")
 const express = require("express");
 const {user} = require("./routes/user")
 const {admin} = require("./routes/admin")
+const cors=require("cors")
+
 
 /* const bcrypt = require("bcrypt");
 
@@ -15,6 +17,7 @@ const UserModel = require("./Models/user_model.js");
 const { authenticate } = require("./middleware/authentacation.js"); */
 
 const app = express();
+app.use(cors())
 
 app.use(express.json());
 app.use ("/admin",admin);
