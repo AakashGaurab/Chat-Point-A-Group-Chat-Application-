@@ -12,18 +12,19 @@
 <body>
     <div class="signup-page">
         <div class="form-left-part">
-            <form action="">
+            <form action="" id="signup">
                 <h1 id="signup-heading">Signup</h1>
                 <p>Already have an account? <a href="./login.html">Login</a></p>
-                <label for="signup-name" class="signup-input">Name:</label><br>
-                <input type="text" id="signup-name" placeholder="Enter you name"><br>
-                <label for="signup-email" class="signup-input">Email Address:</label><br>
-                <input type="text" id="signup-email" placeholder="Enter you email..."><br>
+                <label for="signup-name"  class="signup-input">Name:</label><br>
+                <input type="text" name="name" id="signup-name" placeholder="Enter you name"><br>
+                <label for="signup-email"  class="signup-input">Email Address:</label><br>
+                <input type="text" id="signup-email" name="email" placeholder="Enter you email..."><br>
                 <label for="signup-password" class="signup-input">Password:</label><br>
-                <input type="text" id="signup-password" placeholder="Enter your password..."><br>
+                <input type="text" id="signup-password" name="password" placeholder="Enter your password..."><br>
                 <input type="checkbox" id="signup-rememberme" name="signup-rememberme">
                 <label for="signup-rememberme">Remember me</label><br>
                 <button id="signup-login-button">SIGNUP</button>
+                <!-- <input type="submit" id="signup-login-button" placeholder="SIGNUP"> -->
                 <button id="admin-login-button">LOGIN AS ADMIN</button>
                 <p id="orlogin-with">or login with</p>
                 <div id="login-with">
@@ -40,8 +41,8 @@
         </div>
 
     </div>
-    <script>
-
+    <script src="./signup.js">
+    
     
     </script>
 </body>

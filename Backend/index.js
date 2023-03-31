@@ -3,8 +3,10 @@ const mongoose=require("mongoose")
 const express = require("express");
 const {user} = require("./routes/user")
 const {admin} = require("./routes/admin")
-const cors = require("cors");
+
+
 const app = express();
+app.use(cors())
 
 app.use(cors({origin:"*"}))
 
