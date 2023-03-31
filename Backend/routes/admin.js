@@ -1,11 +1,8 @@
 const express = require("express");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const app = express.Router();
 const admin = express.Router();
 const {UserModel} = require("../Models/user_model");
 
-app.get("/read",async(req,res)=>{
+admin.get("/read",async(req,res)=>{
     try {
         let data = await UserModel.find({});
         res.json(data);
@@ -15,7 +12,7 @@ app.get("/read",async(req,res)=>{
 })
 
 
-app.post("/create",async(req,res)=>{
+admin.post("/create",async(req,res)=>{
     let payload = req.body;
     let {name,email,password} = payload;
     bcrypt.hash(password,process.env.salt,async(err,hash)=>{
@@ -34,7 +31,7 @@ app.post("/create",async(req,res)=>{
 })
 
 
-app.put("/update",async(req,res)=>{
+admin.put("/update",async(req,res)=>{
     let {email} = req.body;
     try {
         await UserModel.updateOne({email:email},{$set:{role:"Admin"}});
@@ -46,7 +43,7 @@ app.put("/update",async(req,res)=>{
 })
 
 
-app.delete("/delete",async(req,res)=>{
+admin.delete("/delete",async(req,res)=>{
       try {
         await UserModel.deleteOne({email:email});
         res.send("User Removed from Data Base");
