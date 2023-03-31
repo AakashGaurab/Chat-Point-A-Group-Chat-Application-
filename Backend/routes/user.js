@@ -8,14 +8,14 @@ const UserModel = require("../Models/user_model");
 
 const { authenticate } = require("../middleware/authentacation");
 
+const { authorise } = require("../middleware/authorization.js");
 
-
-const express= require("express")
-const user = express.Router()
+const express = require("express");
+const user = express.Router();
 require("dotenv").config();
 
 const myredis = createClient({
-  url: "redis://default:u2Pl4XkTWzqr9N1XkOUzsKZ0qnsAxqwf@redis-14012.c264.ap-south-1-1.ec2.cloud.redislabs.com:14012",
+  url: process.env.REDIS_URL,
 });
 
 myredis.on("error", (err) => console.log("Redis Client Error", err));
@@ -24,14 +24,22 @@ user.get("/", (req, res) => {
   res.send("welcome user");
 });
 
+user.get("/userdata", authenticate, authorise(["User"]), (req, res) => {
+  res.send("this is the main page for users");
+});
+
 user.get("/protected", authenticate, (req, res) => {
   res.send("only verified users can use this");
 });
 
 
+  //create a new User
+
+
 
 user.post("/register", async (req, res) => { 
   try{                  //create a new User 
+
   const { name, email, password } = req.body;
 
   const already_exists = await UserModel.find({ email });
@@ -51,8 +59,12 @@ user.post("/register", async (req, res) => {
 });
 
 
+  //  login a user
+
+
 
 user.post("/login", async (req, res) => {         //  login a user 
+
   const { email, password } = req.body;
   
   const user = await UserModel.findOne({ email });
@@ -62,8 +74,10 @@ user.post("/login", async (req, res) => {         //  login a user
   console.log(match)
 
   if (match) {
-    const token = jwt.sign({ email }, process.env.JWT, { expiresIn: "1h" });
-    const ref_token = jwt.sign({ email }, process.env.REF_JWT, {
+    const token = jwt.sign({ userId: user[0] }, process.env.JWT, {
+      expiresIn: "1h",
+    });
+    const ref_token = jwt.sign({ userId: user[0] }, process.env.REF_JWT, {
       expiresIn: "5h",
     });
 
@@ -73,7 +87,8 @@ user.post("/login", async (req, res) => {         //  login a user
   }
 });
 
-user.get("/logout", async (req, res) => {                   //  logout user 
+user.get("/logout", async (req, res) => {
+  //  logout user
   const token = req.headers.authorization;
   if (!token) {
     res.send("Please login first");
@@ -87,9 +102,26 @@ user.get("/logout", async (req, res) => {                   //  logout user
   }
 });
 
+// refresh token
+user.get("/newtoken", (req, res) => {
+  const refresh_token = req.headers.authorization;
+  if (!refresh_token) {
+    res.send({ msg: "please login first" });
+  } else {
+    jwt.verify(refresh_token, process.env.REF_JWT, (err, decoded) => {
+      if (err) {
+        res.send({ msg: "please login again" });
+      } else {
+        const token = jwt.sign({ userId: decoded.userId }, process.env.JWT, {
+          expiresIn: "1h",
+        });
+        res.cookie("signintoken", token);
+        res.send({ msg: "login successful", token });
+      }
+    });
+  }
+});
 
-
-
-module.exports={
-    user
-}
+module.exports = {
+  user,
+};
