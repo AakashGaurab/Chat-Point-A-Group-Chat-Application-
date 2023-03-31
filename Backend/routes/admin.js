@@ -1,6 +1,6 @@
 const express = require("express");
 const admin = express.Router();
-const {UserModel} = require("../Models/user_model");
+const UserModel = require("../Models/user_model");
 
 admin.get("/read",async(req,res)=>{
     try {
