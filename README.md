@@ -28,10 +28,10 @@ To welcome user (Get Request)
 /user/
 
 To register or signup (Post Request)
-/user/register (pass in body name,email,password)
+/user/register (pass in body name, email, password)
 
 For login (Post Request)
-/user/login (pass in body email,password)
+/user/login (pass in body email, password)
 
 For logout (Get Request)
 /user/logout (pass the token in headers)
