@@ -32,32 +32,46 @@ user.get("/protected", authenticate, (req, res) => {
   res.send("only verified users can use this");
 });
 
-user.post("/register", async (req, res) => {
+
   //create a new User
+
+
+
+user.post("/register", async (req, res) => { 
+  try{                  //create a new User 
+
   const { name, email, password } = req.body;
 
   const already_exists = await UserModel.find({ email });
   if (already_exists.length > 0) {
     res.send("User already exists");
   } else {
-    const hashed_pass = bcrypt.hash(password, 8, async (err, result) => {
-      if (err) {
-        res.send("registration failed");
-      }
-      const user = await new UserModel({ name, email, password: result });
+    const hashed_pass = await bcrypt.hash(password, 8)
+    console.log(hashed_pass);
+      req.body.password=hashed_pass;
+      const user = await new UserModel({ name, email,password: req.body.password});
       user.save();
-      res.send("user registered successfully");
-    });
+      res.send({msg:`user registered successfully`});
   }
+}catch(err){
+  console.log(err);
+}
 });
 
-user.post("/login", async (req, res) => {
+
   //  login a user
+
+
+
+user.post("/login", async (req, res) => {         //  login a user 
+
   const { email, password } = req.body;
+  
+  const user = await UserModel.findOne({ email });
+  console.log(user)
 
-  const user = await UserModel.find({ email });
-
-  const match = await bcrypt.compare(password, user[0].password);
+  const match = await bcrypt.compare( password,user.password);
+  console.log(match)
 
   if (match) {
     const token = jwt.sign({ userId: user[0] }, process.env.JWT, {
@@ -69,7 +83,7 @@ user.post("/login", async (req, res) => {
 
     res.send({ msg: "login successful", token, ref_token });
   } else {
-    res.send("Wrong Credentials");
+    res.send({msg:"wrong credential"});
   }
 });
 

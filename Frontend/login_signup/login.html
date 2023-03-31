@@ -12,13 +12,13 @@
 <body>
     <div class="login-page">
         <div class="form-left-part">
-            <form action="">
+            <form action="" id="login">
                 <h1 id="login-heading">Login</h1>
                 <p>Doesn't have an account yet? <a href="./signup.html">Sign Up</a></p>
                 <label for="login-email" class="login-input">Email Address:</label><br>
-                <input type="text" id="login-email" placeholder="Enter you email..."><br>
+                <input type="text" id="login-email" name="email" placeholder="Enter you email..."><br>
                 <label for="login-password" class="login-input">Password:</label><br>
-                <input type="text" id="login-password" placeholder="Enter your password..."><br>
+                <input type="text" id="login-password" name="password" placeholder="Enter your password..."><br>
                 <input type="checkbox" id="login-rememberme" name="login-rememberme">
                 <label for="login-rememberme">Remember me</label><br>
                 <button id="login-login-button">LOGIN</button>
@@ -37,6 +37,7 @@
         </div>
 
     </div>
+    <script src="./login.js"></script>
 </body>
 
 </html>
