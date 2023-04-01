@@ -6,14 +6,21 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 const GoogleStrategy = require("passport-google-oauth");
 const {passport} = require("./google.outh");
 
+var path = require('path');
+// var path = require('../../../webSockets/chat.html');
+
+var filename = path.normalize('C:/Users/admin/Desktop/MASAI/responsible-stomach-8778/webSockets/chat.html');
+console.log(filename)
 
 app.use(cookieParser());
 app.get("/",(req,res)=>{
      res.sendFile(__dirname+"/index.html");
 })
+
 app.get("/a",(req,res)=>{
-    res.sendFile(__dirname+"/login.html");
+    res.sendFile(__dirname+'../../../webSockets/chat.html');
 })
+
 
 
 /* *********************************github Oauth********************** */
@@ -64,7 +71,8 @@ app.get('/auth/google/callback',
   function(req, res) {
     // console.log(req.body);
     // Successful authentication, redirect home.
-    res.redirect('/a');
+    res.redirect("https://www.google.com")
+    // window.location.href = "../../../webSockets/chat.html"
   });
 
 
