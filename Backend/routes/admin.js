@@ -1,7 +1,7 @@
 const express = require("express");
 const admin = express.Router();
 const UserModel = require("../Models/user_model");
-
+const bcrypt = require("bcrypt");
 
 admin.use(express.json());
 admin.get("/read",async(req,res)=>{
@@ -17,16 +17,16 @@ admin.get("/read",async(req,res)=>{
 admin.post("/create",async(req,res)=>{
     let payload = req.body;
     let {name,email,password} = payload;
-    bcrypt.hash(password,process.env.salt,async(err,hash)=>{
+    bcrypt.hash(password,5,async(err,hash)=>{
         if(err){
-            res.send("Error Hashing Password");
+            res.json("Error Hashing Password");
         }
         else {
             try {
                 await UserModel.insertMany([{name,email,password:hash,role:"Admin"}]) 
-                res.send("Admin Added Succesfully");
+                res.json("Admin Added Succesfully");
              } catch (error) {
-                res.status(404).send(error);
+                res.status(404).json(error);
              }
         }
     })

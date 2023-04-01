@@ -82,6 +82,9 @@ async function delete_user(email){
   console.log(email);
   let data = await fetch("http://localhost:3656/admin/delete",{
     method:"Delete",
+    headers:{
+      'Content-type':'Application/json'
+    },
     body:JSON.stringify(obj)
   })
   .then(response => response.json())
@@ -105,6 +108,9 @@ async function add_admin(element){
   obj.email = element.email;
   let response = await fetch("http://localhost:3656/admin/update",{
     method:"PUT",
+    headers:{
+      'Content-type':'Application/json'
+    },
     body:JSON.stringify(obj),
   });
 
