@@ -1,0 +1,106 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+/* ***************************navbar css************************* */
+.navbar{
+    margin: 2% 2% 0% 2%;
+    height: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: green;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.navbar>div{
+    color: aliceblue;
+    width: fit-content;
+    height: 5%;
+}
+
+.navbar img{
+    width: 40%;
+}
+
+.login{
+    background-color: green;
+    border: none;
+    color: aliceblue;
+    font-size: large;
+}
+
+/* ********************************************************************* */
+
+.lower_navbar{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lower_navbar>div:nth-child(2){
+    display:flex ;
+    align-items: center;
+}
+
+.lower_navbar>div:nth-child(2)>div:nth-child(1){
+    padding: 5px;
+    border-radius: 3px;
+    background-color: rgb(162, 187, 243);
+
+}
+
+.search_text{
+    background-color: rgb(162, 187, 243);
+    color: black;
+    border: none;
+    outline: none;
+}
+
+.search{
+    background-color: rgb(162, 187, 243);
+    font-size: large;
+    border: none;
+}
+
+.add_user{
+    background-color: chocolate;
+    color: aliceblue;
+    margin: 2px;
+    padding: 5px;
+    border: none;
+    font-size: larger;
+    border-radius: 3px;
+}
+
+/* ************************form css ************************************ */
+
+.form{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.form input{
+    width: 40%;
+    margin-bottom: 3%;
+}
+
+.submit{
+    background-color: chocolate;
+    color: aliceblue;
+    border: none;
+    padding: 3px;
+    border-radius: 2px;
+    font-size: larger
+}
+
+.submit:hover{
+    background-color: rgb(248, 107, 7);
+}
