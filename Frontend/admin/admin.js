@@ -123,3 +123,12 @@ async function add_admin(element){
       alert(data);
   }
 }
+
+
+
+/* **************************************************************** */
+
+
+document.querySelector(".add_user").addEventListener("click",()=>{
+  window.location.href = "admin_add.html";
+})
