@@ -1,7 +1,7 @@
 const express = require("express");
 const admin = express.Router();
 const UserModel = require("../Models/user_model");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 admin.use(express.json());
 admin.get("/read",async(req,res)=>{
@@ -35,8 +35,7 @@ admin.post("/create",async(req,res)=>{
 
 admin.put("/update",async(req,res)=>{
     let {email} = req.body;
-    console.log(req.body)
-    try {
+        try {
         await UserModel.updateOne({email:email},{$set:{role:"Admin"}});
         res.json("User Updated To admin");
 
@@ -47,7 +46,7 @@ admin.put("/update",async(req,res)=>{
 
 
 admin.delete("/delete",async(req,res)=>{
-    console.log(req.body);
+    
     let email = req.body.email;
     console.log(email);
       try {

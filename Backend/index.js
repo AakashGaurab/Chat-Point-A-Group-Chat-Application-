@@ -8,12 +8,11 @@ const nodemailer = require("nodemailer");
 const cors = require("cors");
 
 const app = express();
-// app.use(cors());
-
+app.use(express.json());
 app.use(cors({ origin: "*" }));
 
-app.use(express.json());
 
+/* ****************************Email Part ***************************************** */
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -24,7 +23,7 @@ const transporter = nodemailer.createTransport({
 
 let loggerTouse = (req, res, next) => {
   logger.log("info", `A ${req.method} request is made on url:${req.url}`);
-  let email = req.body.email || req.user.email;
+  let email = req.body.email || req.user.email || "vipin4147@gmail.com";
 
   let mailOptions = {
     from: "vipin4147@gmail.com",
@@ -44,26 +43,18 @@ let loggerTouse = (req, res, next) => {
   next();
 };
 
+/* ************************************************************************************* */
+
+app.get("/",(req,res)=>{
+  res.json("Welcome to Backend Side Chat-Point");
+})
 app.use(loggerTouse);
 app.use("/admin", admin);
 app.use("/user", user);
-// const {admin} = require("./routes/admin");
 
-// require("dotenv").config();
 
-// const myredis = createClient({
-//   url: "",
-// });
 
-// myredis.on("error", (err) => console.log("Redis Client Error", err));
 
-// app.get("/", (req, res) => {
-//   res.send("welcome user");
-// });
-
-// app.get("/protected", authenticate, (req, res) => {
-//   res.send("only verified users can use this");
-// });
 
 app.listen(process.env.PORT, async () => {
   try {
