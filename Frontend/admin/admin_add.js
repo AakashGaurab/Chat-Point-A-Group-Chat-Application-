@@ -11,7 +11,7 @@ document.querySelector(".add_user").addEventListener("click",(e)=>{
 
 
 async function post_user(obj){
-    let res = await fetch("http://localhost:3656/admin/create",{
+    let res = await fetch("https://chatpointbackend2-production.up.railway.app/admin/create",{
         method:"POST",
        headers:{
         'Content-type':'Application/json'

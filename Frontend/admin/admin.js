@@ -2,7 +2,7 @@ let res_data ;
 
 
 async function get_all_user(){
-    let data = await fetch("http://localhost:3656/admin/read").then(response => response.json())
+    let data = await fetch("https://chatpointbackend2-production.up.railway.app/admin/read").then(response => response.json())
     .then(data => {
       // Handle the data
       return data;
@@ -80,7 +80,7 @@ async function delete_user(email){
   let obj = {};
   obj.email = email;
   console.log(email);
-  let data = await fetch("http://localhost:3656/admin/delete",{
+  let data = await fetch("https://chatpointbackend2-production.up.railway.app/admin/delete",{
     method:"Delete",
     headers:{
       'Content-type':'Application/json'
@@ -106,7 +106,7 @@ else {
 async function add_admin(element){
   let obj = {};
   obj.email = element.email;
-  let response = await fetch("http://localhost:3656/admin/update",{
+  let response = await fetch("https://chatpointbackend2-production.up.railway.app/admin/update",{
     method:"PUT",
     headers:{
       'Content-type':'Application/json'
