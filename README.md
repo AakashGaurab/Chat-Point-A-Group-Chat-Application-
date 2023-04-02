@@ -38,3 +38,8 @@ For logout (Get Request)
 
 To generate new token (Get Request)
 /user/newtoken (pass the refresh token in headers)
+
+
+Deployed Backend Link    https://dull-duck-teddy.cyclic.app/
+
+
