@@ -8,9 +8,15 @@ const nodemailer = require("nodemailer");
 const cors = require("cors");
 
 const app = express();
+
+const fs = require("fs");
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const {passport} = require("./google.outh");
+
+
+
 app.use(express.json());
 app.use(cors({ origin: "*" }));
-
 
 /* ****************************Email Part ***************************************** */
 const transporter = nodemailer.createTransport({
@@ -23,23 +29,25 @@ const transporter = nodemailer.createTransport({
 
 let loggerTouse = (req, res, next) => {
   logger.log("info", `A ${req.method} request is made on url:${req.url}`);
-  let email = req.body.email || req.user.email || "vipin4147@gmail.com";
+  if(req.method!="GET"){
+    let email = req.body.email || req.user.email || vipin;
 
-  let mailOptions = {
-    from: "vipin4147@gmail.com",
-    to: email,
-    subject: "Email from Chat Point",
-    text: "info" + " " + `A ${req.method} request is made on url:${req.url}`,
-  };
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log(error);
-      res.send("error sending email");
-    } else {
-      console.log("Email sent: " + info.response);
-      res.send("email sent successfully");
-    }
-  });
+    let mailOptions = {
+      from: "vipin4147@gmail.com",
+      to: email,
+      subject: "Email from Chat Point",
+      text: "info" + " " + `A ${req.method} request is made on url:${req.url}`,
+    };
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+        res.send("error sending email");
+      } else {
+        console.log("Email sent: " + info.response);
+        res.send("email sent successfully");
+      }
+    });
+  }
   next();
 };
 
@@ -52,7 +60,18 @@ app.use(loggerTouse);
 app.use("/admin", admin);
 app.use("/user", user);
 
+/* *************************************google oauth*************************************** */
 
+
+
+app.get('/auth/google',passport.authenticate('google', { scope: ['profile','email'] }));
+
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' ,session:false}),function(req, res) {
+    res.redirect("https://visionary-pixie-5db9b5.netlify.app/entry.html")
+  });
+
+
+ /*  ******************************************************************************** */
 
 
 

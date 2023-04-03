@@ -11,7 +11,7 @@ button.addEventListener("click",(event)=>{
         // role:form.role.value 
     }
     console.log(formdata)
-    fetch("http://localhost:3656/user/login",{
+    fetch("https://chatpointbackend2-production.up.railway.app/user/login",{
         method:"POST",
        headers:{
         'Content-type':'Application/json'
@@ -19,6 +19,7 @@ button.addEventListener("click",(event)=>{
        body:
         JSON.stringify(formdata)
     }).then((res)=>res.json()).then((res)=>{console.log(res);
-    location.href="./signup.html"}).catch((err)=>console.log(err))
+    location.href="./entry.html"}).catch((err)=>console.log(err))
     
     })
+

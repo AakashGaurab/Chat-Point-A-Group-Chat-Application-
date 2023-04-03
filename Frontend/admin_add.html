@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome To Admin Page</title>
-    <link rel="stylesheet" href="admin.css">
+    <title>Add User To Admin</title>
+    <link rel="stylesheet" href="admin_add.css">
+    <link rel="icon" type="image/png" href="./chat_point.ico" sizes="32x32">
 </head>
 <body>
+    
+    
     <div class="navbar">
         <div>
             <img src="./chat_point.png" alt="LOGO">
@@ -29,31 +32,24 @@
 
 
         <div>
-            <div>
-              <input type="text" class="search_text" placeholder="Search">
-              <button class="search"><i class="fa-solid fa-magnifying-glass"></i></button>  
-            </div>
-
 
             <div>
-                <button class="add_user">Add User</button>
+                <button class="add_user">Post User</button>
             </div>
         </div>
     </div>
-    <!-- ************************************************************************* -->
 
 
-    <div class="main_body">
-       <div>
-        <div class="name">Name</div>
-        <div class="role">User Role</div>
-        <div class="actions">Actions</div>
-       </div>
-    </div>
 
+    <!-- **************************form for user********************** -->
+    <form action="" class="form">
+        <label for="Name">Name</label>
+        <input type="text" id="name">
+        <label for="email">Email</label>
+        <input type="email" id="email">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Password">
+    </form>
 </body>
-
-
-<script src="https://kit.fontawesome.com/24c494a6b6.js"crossorigin="anonymous"></script>
-<script src="admin.js"></script>
+<script src="admin_add.js"></script>
 </html>
