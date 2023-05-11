@@ -54,6 +54,6 @@ To generate new token (Get Request)
 Deployed Backend Link    https://dull-duck-teddy.cyclic.app/
 
 
-Deployed Frontend Link https://fantastic-granita-d72f98.netlify.app/
+Deployed Frontend Link https://stellar-blini-b6e6e0.netlify.app/
 
 
