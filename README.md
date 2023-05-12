@@ -80,17 +80,19 @@ To generate new token (Get Request)
     
     Admin Side Routes:
 
-Get all users: GET /admin/read
-Create new admin: POST /admin/create (with name, email, and password in the request body)
-Update a user from user role to admin: PUT /admin/update (with email of the user in the request body)
-Delete a user: DELETE /admin/delete (with email of the user in the request body)
-User Side Routes:
+<li>Get all users: GET /admin/read</li>
+<li>Create new admin: POST /admin/create (with name, email, and password in the request body)</li>
+<li>Update a user from user role to admin: PUT /admin/update (with email of the user in the request body)</li>
+<li>Delete a user: DELETE /admin/delete (with email of the user in the request body)</li>
 
-Welcome user: GET /user/
+    User Side Routes:
+
+<li>Welcome user: GET /user/</li>
 <li>Register or sign up: POST /user/register (with name, email, and password in the request body)</li>
 <li>Login: POST /user/login (with email and password in the request body)</li>
 <li>Logout: GET /user/logout (with the token in the request headers)</li>
 <li>Generate new token: GET /user/newtoken (with the refresh token in the request headers)</li>
+    
     
 Deployed Backend Link: https://chatpointbackend2-production-56db.up.railway.app/
 
