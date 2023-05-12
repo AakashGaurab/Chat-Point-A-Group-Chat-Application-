@@ -7,7 +7,6 @@ async function get_all_user(){
       // Handle the data
       return data;
     });
-    //console.log(data);
     res_data = data;
     display(data);
 }
@@ -17,6 +16,11 @@ get_all_user();
 /* ************************display Function ************************* */
 
 function display(data){
+  let role = sessionStorage.getItem("role");
+  if(role!="Admin"){
+    alert("You are not authorised")
+    return;
+  }
   document.querySelector(".main_body").innerHTML=`<div>
   <div class="name">Name</div>
   <div class="role">User Role</div>

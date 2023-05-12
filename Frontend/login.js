@@ -8,9 +8,8 @@ button.addEventListener("click",(event)=>{
     let formdata={
         email:form.email.value,
         password:form.password.value,
-        // role:form.role.value 
     }
-    console.log(formdata)
+
     fetch("https://chatpointbackend2-production.up.railway.app/user/login",{
         method:"POST",
        headers:{
@@ -18,8 +17,10 @@ button.addEventListener("click",(event)=>{
        },
        body:
         JSON.stringify(formdata)
-    }).then((res)=>res.json()).then((res)=>{console.log(res);
-    location.href="./entry.html"}).catch((err)=>console.log(err))
+    })
+    .then((res)=>res.json())
+    .then((res)=>{location.href="./entry.html"})
+    .catch((err)=>console.log(err))
     
     })
 

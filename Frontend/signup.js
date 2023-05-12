@@ -12,7 +12,7 @@ let formdata={
     password:form.password.value,
     // role:form.role.value
 }
-console.log(formdata)
+
 fetch("https://chatpointbackend2-production.up.railway.app/user/register",{
     method:"POST",
    headers:{
@@ -20,8 +20,8 @@ fetch("https://chatpointbackend2-production.up.railway.app/user/register",{
    },
    body:
     JSON.stringify(formdata)
-}).then((res)=>res.json()).then((res)=>{console.log(res),window.location.href="./login.html"})
-.catch((err)=>console.log(err))
+}).then((res)=>res.json()).then((res)=>{alert(res.msg),window.location.href="./login.html"})
+.catch((err)=>alert(err))
  
 
 })
@@ -47,13 +47,13 @@ document.querySelector("#admin-login-button").addEventListener("click",async(eve
         password:form.password.value,
         // role:form.role.value 
     }
-    console.log(formdata);
+    
     let res = await fetch("https://chatpointbackend2-production.up.railway.app/admin/read");
     let data = await res.json();
     console.log(data);
     let flag = false;
     for (let i=0;i<data.length;i++){
-        if(data[i].email==formdata.email){
+        if(data[i].email==formdata.email && data[i].role=="Admin"){
             flag=true;
             break;
         }
@@ -61,6 +61,7 @@ document.querySelector("#admin-login-button").addEventListener("click",async(eve
 
     if(flag){
         window.location.href = "./admin.html";
+        sessionStorage.setItem("role","Admin");
     }
     else {
         alert("Wrong Credentials");
