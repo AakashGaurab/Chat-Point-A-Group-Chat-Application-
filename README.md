@@ -19,8 +19,9 @@ The application is available across different platforms, including mobile and de
      <li>Express JS</li>
 </ul>
     
-  <h2>Our Team Members<h2>
-     <ul> 
+<h2>Our Team Members</h2>
+
+   <ul> 
      <li>Aakash Gaurab</li>
      <li>Vipin Kumar</li>
      <li>Shradha Vastrakar</li>
