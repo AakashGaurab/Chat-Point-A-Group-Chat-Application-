@@ -4,10 +4,8 @@
   
 The application is available across different platforms, including mobile and desktop, and provides a seamless and secure communication experience. With its intuitive interface and robust functionality, your chat application aims to simplify communication and enhance social connectivity.</p>
 
-Deployment
-  
-     Front-End: https://incredible-selkie-67b697.netlify.app/signup.html
-  
+<h2>Deployment</h2>  
+    <p>Front-End: https://incredible-selkie-67b697.netlify.app/signup.html</p>   
      <li>Back-End: https://chatpointbackend2-production-56db.up.railway.app/</li>
   
   
