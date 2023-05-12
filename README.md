@@ -1,10 +1,10 @@
 <h1>CHAT POINT - A REAL TIME CHAT APPLICATION</h1>
 
-Your chat application is a user-friendly platform that allows individuals to communicate with each other in real-time via text-based messaging. It offers various features, such as the ability to create groups, share multimedia content, and make voice and video calls. The application is available across different platforms, including mobile and desktop, and provides a seamless and secure communication experience. With its intuitive interface and robust functionality, your chat application aims to simplify communication and enhance social connectivity.
+<p>Chat Point is a user-friendly platform that allows individuals to communicate with each other in real-time via text-based messaging. It offers various features, such as the ability to create groups. The application is available across different platforms, including mobile and desktop, and provides a seamless and secure communication experience. With its intuitive interface and robust functionality, your chat application aims to simplify communication and enhance social connectivity.</p>
 
-<h2>Chat point allow users to communicate with each other in real time through text.<h2>
+<!-- <h2>Chat point allow users to communicate with each other in real time through text.<h2> -->
 
-<h2>Login and signup page (fw23_0771)</h2>
+<h2>Login and Signup page (fw23_0771)</h2>
 
 ![Screenshot (171)](https://user-images.githubusercontent.com/115460277/228595398-e6cd1d59-b4f7-48d1-8043-73b35de01282.png)
 
