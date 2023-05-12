@@ -87,17 +87,13 @@ Delete a user: DELETE /admin/delete (with email of the user in the request body)
 User Side Routes:
 
 Welcome user: GET /user/
-Register or sign up: POST /user/register (with name, email, and password in the request body)
-Login: POST /user/login (with email and password in the request body)
-Logout: GET /user/logout (with the token in the request headers)
-Generate new token: GET /user/newtoken (with the refresh token in the request headers)
+<li>Register or sign up: POST /user/register (with name, email, and password in the request body)</li>
+<li>Login: POST /user/login (with email and password in the request body)</li>
+<li>Logout: GET /user/logout (with the token in the request headers)</li>
+<li>Generate new token: GET /user/newtoken (with the refresh token in the request headers)</li>
     
-    
+Deployed Backend Link: https://chatpointbackend2-production-56db.up.railway.app/
 
-
-Deployed Backend Link    https://dull-duck-teddy.cyclic.app/
-
-
-Deployed Frontend Link https://stellar-blini-b6e6e0.netlify.app/
+Deployed Frontend Link: https://incredible-selkie-67b697.netlify.app/signup.html
 
 
