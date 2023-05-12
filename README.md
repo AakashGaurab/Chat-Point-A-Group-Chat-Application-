@@ -26,8 +26,8 @@ The application is available across different platforms, including mobile and de
      <li>Vipin Kumar</li>
      <li>Shradha Vastrakar</li>
      <li>Parimal Paramanik</li>  
-       <li>Rahul Gupta</li>
-  </ul>
+     <li>Rahul Gupta</li>
+    </ul>
     
   
 <h2>Login and Signup page (fw23_0771)</h2>
