@@ -6,7 +6,7 @@ The application is available across different platforms, including mobile and de
 
 <h2>Deployment<h2>
   
-     <li>Front-End: https://incredible-selkie-67b697.netlify.app/signup.html</li>
+     Front-End: https://incredible-selkie-67b697.netlify.app/signup.html
   
      <li>Back-End: https://chatpointbackend2-production-56db.up.railway.app/</li>
   
