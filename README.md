@@ -85,18 +85,18 @@ To generate new token (Get Request)
     
     Admin Side Routes:
 
-<li>Get all users: GET /admin/read</li>
-<li>Create new admin: POST /admin/create (with name, email, and password in the request body)</li>
-<li>Update a user from user role to admin: PUT /admin/update (with email of the user in the request body)</li>
-<li>Delete a user: DELETE /admin/delete (with email of the user in the request body)</li>
+<li>Get all users: This route is a GET request that retrieves all users and returns them as a response. The route path is /admin/read.</li>
+<li>Create new admin: This route is a POST request that creates a new admin. The name, email, and password of the new admin are passed in the request body. The route path is /admin/create.</li>
+<li>Update a user from user role to admin: This route is a PUT request that updates a user's role from user to admin. The email of the user is passed in the request body. The route path is /admin/update.</li>
+<li>Delete a user: This route is a DELETE request that deletes a user. The email of the user to be deleted is passed in the request body. The route path is /admin/delete.</li>
 
     User Side Routes:
 
-<li>Welcome user: GET /user/</li>
-<li>Register or sign up: POST /user/register (with name, email, and password in the request body)</li>
-<li>Login: POST /user/login (with email and password in the request body)</li>
-<li>Logout: GET /user/logout (with the token in the request headers)</li>
-<li>Generate new token: GET /user/newtoken (with the refresh token in the request headers)</li>
+<li>Welcome user: This route is a GET request that welcomes the user. It is mainly used to test if the user is authenticated and authorized. The route path is /user/.</li>
+<li>Register or sign up: This route is a POST request that registers a new user. The name, email, and password of the new user are passed in the request body. The route path is /user/register.</li>
+<li>Login: This route is a POST request that logs in a user. The email and password of the user are passed in the request body. The route path is /user/login.</li>
+<li>Logout: This route is a GET request that logs out a user. The token is passed in the request headers. The route path is /user/logout.</li>
+<li>Generate new token: This route is a GET request that generates a new token for the user. The refresh token is passed in the request headers. The route path is /user/newtoken.</li>
     
     Links:
     
