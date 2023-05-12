@@ -20,7 +20,7 @@ The application is available across different platforms, including mobile and de
      <li>Express JS</li>
   </ul>
     
-     <h2>Our Team Members<h2>
+  <h2>Our Team Members<h2>
      <ul> 
      <li>Aakash Gaurab</li>
      <li>Vipin Kumar</li>
@@ -36,11 +36,11 @@ The application is available across different platforms, including mobile and de
 
 ![Screenshot (172)](https://user-images.githubusercontent.com/115460277/228595466-af683247-76be-4c7e-8823-07b1f3719fcf.png)
 
-<h2>Chat Page</h2>
+<!-- <h2>Chat Page</h2>
 
 ![Screenshot (172)](https://github.com/AakashGaurab/responsible-stomach-8778/blob/main/Chat.png)
 
-![Screenshot (172)](https://github.com/AakashGaurab/responsible-stomach-8778/blob/main/Entry.png)
+![Screenshot (172)](https://github.com/AakashGaurab/responsible-stomach-8778/blob/main/Entry.png) -->
 
 
 <h2>Admin Page</h2>
