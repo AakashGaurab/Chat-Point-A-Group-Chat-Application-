@@ -4,7 +4,11 @@
   
 The application is available across different platforms, including mobile and desktop, and provides a seamless and secure communication experience. With its intuitive interface and robust functionality, your chat application aims to simplify communication and enhance social connectivity.</p>
 
-<!-- <h2>Chat point allow users to communicate with each other in real time through text.<h2> -->
+<h2>Deployment<h2>
+  <ul>
+    <li>Front-End</li>
+    <li>Back-End</li>
+  </ul>
 
 <h2>Login and Signup page (fw23_0771)</h2>
 
