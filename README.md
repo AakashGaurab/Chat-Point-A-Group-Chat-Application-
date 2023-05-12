@@ -29,8 +29,9 @@ The application is available across different platforms, including mobile and de
      <li>Rahul Gupta</li>
     </ul>
     
-  
 <h2>Login and Signup page (fw23_0771)</h2>
+
+<p>The login and signup page is a sleek and modern design that is perfect for any web application. The page features a clean and minimalistic design, with a focus on user experience. The use of soft colors and clear text makes it easy for users to navigate and quickly find what they are looking for.</p>
 
 ![Screenshot (171)](https://user-images.githubusercontent.com/115460277/228595398-e6cd1d59-b4f7-48d1-8043-73b35de01282.png)
 
@@ -44,6 +45,8 @@ The application is available across different platforms, including mobile and de
 
 
 <h2>Admin Page</h2>
+
+<p>The admin page is a powerful tool for managing your web application. The page features a comprehensive set of tools and options that allow you to manage users, content, and settings with ease. The design of the page is professional and functional, with a focus on usability and efficiency. Whether you are managing a small blog or a large e-commerce site, the admin page is an essential tool for keeping your web application running smoothly.</p>
 
 ![Screenshot (172)](https://github.com/AakashGaurab/responsible-stomach-8778/blob/main/Admin.png)
 
@@ -93,6 +96,7 @@ To generate new token (Get Request)
 <li>Logout: GET /user/logout (with the token in the request headers)</li>
 <li>Generate new token: GET /user/newtoken (with the refresh token in the request headers)</li>
     
+    Links:
     
 Deployed Backend Link: https://chatpointbackend2-production-56db.up.railway.app/
 
