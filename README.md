@@ -37,11 +37,13 @@ The application is available across different platforms, including mobile and de
 
 ![Screenshot (172)](https://user-images.githubusercontent.com/115460277/228595466-af683247-76be-4c7e-8823-07b1f3719fcf.png)
 
-<!-- <h2>Chat Page</h2>
+<h2>Chat Page</h2>
+
+<p>The chat page is another example of a well-designed web application. The page features a clean and minimalist design that is perfect for chatting with friends or colleagues. The use of soft colors and simple icons creates a relaxed and inviting atmosphere, encouraging users to stay and chat.</p>
 
 ![Screenshot (172)](https://github.com/AakashGaurab/responsible-stomach-8778/blob/main/Chat.png)
 
-![Screenshot (172)](https://github.com/AakashGaurab/responsible-stomach-8778/blob/main/Entry.png) -->
+![Screenshot (172)](https://github.com/AakashGaurab/responsible-stomach-8778/blob/main/Entry.png)
 
 
 <h2>Admin Page</h2>
