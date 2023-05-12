@@ -39,12 +39,13 @@ The application is available across different platforms, including mobile and de
 
 <h2>Chat Page</h2>
 
-<p>The chat page is another example of a well-designed web application. The page features a clean and minimalist design that is perfect for chatting with friends or colleagues. The use of soft colors and simple icons creates a relaxed and inviting atmosphere, encouraging users to stay and chat.</p>
+<p>The chat page is another example of a well-designed web application. The page features a clean and minimalist design that is perfect for chatting with friends or colleagues. The use of soft colors and simple icons creates a relaxed and inviting atmosphere, encouraging users to stay and chat.
+
+  
+Our chat app allows users to create a personalized chat room and invite others to join the conversation. This feature enables users to have a private chat with their friends, family, or colleagues, without the need to create a separate group chat. Users can choose a room name, and invite other users to join.
+</p>
 
 ![Screenshot (172)](https://github.com/AakashGaurab/responsible-stomach-8778/blob/main/Chat.png)
-
-<p>
-Our chat app allows users to create a personalized chat room and invite others to join the conversation. This feature enables users to have a private chat with their friends, family, or colleagues, without the need to create a separate group chat. Users can choose a room name, and invite other users to join.</p>
 
 ![Screenshot (172)](https://github.com/AakashGaurab/responsible-stomach-8778/blob/main/Entry.png)
 
