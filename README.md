@@ -11,14 +11,14 @@ The application is available across different platforms, including mobile and de
   </ul>
   
   <h2>Technology we used<h2>
- 
+ <ul>
      <li>HTML</li>
      <li>CSS</li>
      <li>JavaScript</li>
      <li>MongoDB</li>  
      <li>Node JS</li>
      <li>Express JS</li>
-
+</ul>
     
   <h2>Our Team Members<h2>
      <ul> 
