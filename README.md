@@ -5,13 +5,31 @@
 The application is available across different platforms, including mobile and desktop, and provides a seamless and secure communication experience. With its intuitive interface and robust functionality, your chat application aims to simplify communication and enhance social connectivity.</p>
 
 <h2>Deployment<h2>
- <ul>
-     <li>Front-End</li>
-    <li>Back-End</li>
+ <ul> 
+     <li>Front-End: https://incredible-selkie-67b697.netlify.app/signup.html</li>
+    <li>Back-End: https://chatpointbackend2-production-56db.up.railway.app/</li>
   </ul>
   
-
-
+  <h2>Technology we used<h2>
+     <ul> 
+     <li>HTML</li>
+     <li>CSS</li>
+     <li>JavaScript</li>
+     <li>MongoDB</li>  
+     <li>Node JS</li>
+     <li>Express JS</li>
+  </ul>
+    
+     <h2>Our Team Members<h2>
+     <ul> 
+     <li>Aakash Gaurab</li>
+     <li>Vipin Kumar</li>
+     <li>Shradha Vastrakar</li>
+     <li>Parimal Paramanik</li>  
+       <li>Rahul Gupta</li>
+  </ul>
+    
+  
 <h2>Login and Signup page (fw23_0771)</h2>
 
 ![Screenshot (171)](https://user-images.githubusercontent.com/115460277/228595398-e6cd1d59-b4f7-48d1-8043-73b35de01282.png)
