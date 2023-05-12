@@ -11,6 +11,11 @@ document.querySelector(".add_user").addEventListener("click",(e)=>{
 
 
 async function post_user(obj){
+    let role = sessionStorage.getItem("role");
+    if(role==!"Admin"){
+        alert("You are not authorised");
+        return;
+    }
     let res = await fetch("https://chatpointbackend2-production.up.railway.app/admin/create",{
         method:"POST",
        headers:{
@@ -23,6 +28,7 @@ async function post_user(obj){
     let data = await res.json();
 
     if(data == "Admin Added Succesfully"){
+        alert("User Added");
         window.location.href = "admin.html";
     }
     else {
