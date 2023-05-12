@@ -47,7 +47,7 @@ The application is available across different platforms, including mobile and de
 
 ![Screenshot (172)](https://github.com/AakashGaurab/responsible-stomach-8778/blob/main/Admin.png)
 
-Admin Side Routes
+<!-- Admin Side Routes
 
 Get all users (get Request)
 /admin/read
@@ -76,7 +76,23 @@ For logout (Get Request)
 /user/logout (pass the token in headers)
 
 To generate new token (Get Request)
-/user/newtoken (pass the refresh token in headers)
+/user/newtoken (pass the refresh token in headers) -->
+    
+    Admin Side Routes:
+
+Get all users: GET /admin/read
+Create new admin: POST /admin/create (with name, email, and password in the request body)
+Update a user from user role to admin: PUT /admin/update (with email of the user in the request body)
+Delete a user: DELETE /admin/delete (with email of the user in the request body)
+User Side Routes:
+
+Welcome user: GET /user/
+Register or sign up: POST /user/register (with name, email, and password in the request body)
+Login: POST /user/login (with email and password in the request body)
+Logout: GET /user/logout (with the token in the request headers)
+Generate new token: GET /user/newtoken (with the refresh token in the request headers)
+    
+    
 
 
 Deployed Backend Link    https://dull-duck-teddy.cyclic.app/
