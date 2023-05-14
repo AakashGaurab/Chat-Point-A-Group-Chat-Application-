@@ -9,6 +9,29 @@ const cors = require("cors");
 
 const app = express();
 
+// Implementing swagger-documentation
+const swaggerJSDoc = require('swagger-jsdoc')
+const swaggerUi = require('swagger-ui-express')
+
+const options = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Chat Point API-Docs',
+      version: '1.0.0'
+    },
+    servers: [
+      {
+        url: 'https://chatpointbackend2-production-56db.up.railway.app/'
+      }
+    ]
+  },
+  apis: ['./routes/*.js'],
+}
+
+const swaggerSpec = swaggerJSDoc(options)
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+
 const fs = require("fs");
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const {passport} = require("./google.outh");

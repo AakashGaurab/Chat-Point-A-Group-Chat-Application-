@@ -3,6 +3,25 @@ const admin = express.Router();
 const UserModel = require("../Models/user_model");
 const bcrypt = require("bcryptjs");
 
+/**
+ * @swagger
+ * /admin/read:
+ *   get:
+ *     summary: Get all users
+ *     description: Retrieve a list of all users from the database
+ *     tags:
+ *       - Admin
+ *     responses:
+ *       '200':
+ *         description: A list of all users
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *       '404':
+ *         description: Error retrieving users
+ */
 admin.use(express.json());
 admin.get("/read",async(req,res)=>{
     try {
@@ -13,7 +32,33 @@ admin.get("/read",async(req,res)=>{
     }
 })
 
-
+/**
+ * @swagger
+ * /admin/create:
+ *   post:
+ *     summary: Create a new admin.
+ *     description: Creates a new admin user with the provided name, email, and password.
+ *     tags:
+ *       - Admin
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Success message after creating the admin.
+ *       404:
+ *         description: Error message if there is an issue inserting the admin into the database.
+ */
 admin.post("/create",async(req,res)=>{
     let payload = req.body;
     let {name,email,password} = payload;
@@ -32,7 +77,37 @@ admin.post("/create",async(req,res)=>{
     })
 })
 
-
+/**
+ * @swagger
+ * /admin/update:
+ *   put:
+ *     summary: Update user role to admin
+ *     tags: 
+ *       - Admin
+ *     security:
+ *       - BearerAuth: []
+ *     requestBody:
+ *       description: User email
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: User updated successfully
+ *       401:
+ *         $ref: '#/components/responses/UnauthorizedError'
+ *       404:
+ *         description: User not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ */
 admin.put("/update",async(req,res)=>{
     let {email} = req.body;
         try {
@@ -44,7 +119,26 @@ admin.put("/update",async(req,res)=>{
     }
 })
 
-
+/**
+ * @swagger
+ * /admin/delete:
+ *   delete:
+ *     summary: Delete a user by email address
+ *     tags: [Admin]
+ *     description: Deletes a user from the database.
+ *     parameters:
+ *       - in: query
+ *         name: email
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The email address of the user to delete.
+ *     responses:
+ *       200:
+ *         description: User deleted successfully
+ *       404:
+ *         description: Error deleting user
+ */
 admin.delete("/delete",async(req,res)=>{
     
     let email = req.body.email;
