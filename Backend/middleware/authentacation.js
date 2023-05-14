@@ -1,7 +1,5 @@
 const jwt = require("jsonwebtoken");
-
 require("dotenv").config();
-
 const { createClient } = require("redis");
 
 const myredis = createClient({
@@ -34,6 +32,4 @@ const authenticate = async (req, res, next) => {
   }
 };
 
-module.exports = {
-  authenticate,
-};
+module.exports = { authenticate };
