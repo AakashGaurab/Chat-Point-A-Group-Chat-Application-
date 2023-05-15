@@ -8,7 +8,7 @@ const username = urlParams.get("username")
 const room = urlParams.get("room")
 console.log(username, room);
 
-const socket = io("http://localhost:4500/", { transports: ["websocket"] });
+const socket = io("https://chat-app-7pse.onrender.com/", { transports: ["websocket"] });
 
 socket.emit('joinRoom', { username, room })
 
@@ -25,6 +25,7 @@ socket.on('roomUsers', ({ room, users }) => {
 chatForm.addEventListener('submit', (e) => {
     e.preventDefault()
     let msg = e.target.elements.msg.value
+    console.log(msg);
     msg = msg.trim()
     if (!msg) {
         return false
@@ -38,7 +39,12 @@ function outputMessage(message) {
     const div = document.createElement('div')
     div.classList.add('message')
     div.setAttribute('class', "textColor")
-
+    if(username!=message.username){
+        div.style.textAlign="left";
+    }
+    else {
+        div.style.textAlign="right";
+    }
     const p = document.createElement('p')
     p.classList.add('meta')
     p.innerText = message.username
@@ -72,3 +78,32 @@ document.getElementById('leave-btn').addEventListener('click', (e) => {
         window.location.href = './index.html'
     }
 })
+
+
+getdata();
+
+async function getdata(){
+    console.log(room);
+    try {
+        let response = await fetch("https://chat-app-7pse.onrender.com/data/",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({"rooms":room})
+        });
+
+        let data = await response.json();
+        console.log(data);
+        display(data);
+    } catch (error) {
+        alert(error);
+    }
+}
+
+
+function display(data){
+    for(let i=0;i<data.length;i++){
+        outputMessage(data[i]);
+    }
+}

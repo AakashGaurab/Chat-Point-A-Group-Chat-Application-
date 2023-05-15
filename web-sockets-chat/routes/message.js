@@ -3,18 +3,19 @@ const data = express.Router();
 const {msg_model} = require("../models/message_model");
 
 
-data.get("/",async (req,res)=>{
+data.post("/",async (req,res)=>{
+  let {rooms} = req.body;
      try {
-       let response =  await msg_model.find().limit(10);
-       res.send(1);
+       let response =  await msg_model.find({"rooms":rooms});
+       res.json(response);
 
      } catch (error) {
-        res.send(error);
+        res.json(error);
      }
 })
 
 
-data.post("/",async (req,res)=>{
+data.get("/",async (req,res)=>{
     let {username,text,time} = req.body;
     try {
       let response =  await msg_model.insertMany([{username,text,time}]);
@@ -24,6 +25,7 @@ data.post("/",async (req,res)=>{
        res.send(error);
     }
 })
+
 
 
 
