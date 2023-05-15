@@ -6,13 +6,11 @@ const { admin } = require("./routes/admin");
 const { logger } = require("./middleware/logger.js");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
-
 const app = express();
 
 // Implementing swagger-documentation
 const swaggerJSDoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express')
-
 const options = {
   definition: {
     openapi: '3.0.0',
@@ -28,13 +26,12 @@ const options = {
   },
   apis: ['./routes/*.js'],
 }
-
 const swaggerSpec = swaggerJSDoc(options)
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 const fs = require("fs");
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-const {passport} = require("./google.outh");
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
+const { passport } = require("./google.outh");
 
 
 
@@ -52,7 +49,7 @@ const transporter = nodemailer.createTransport({
 
 let loggerTouse = (req, res, next) => {
   logger.log("info", `A ${req.method} request is made on url:${req.url}`);
-  if(req.method!="GET"){
+  if (req.method != "GET") {
     let email = req.body.email || req.user.email || vipin;
 
     let mailOptions = {
@@ -76,7 +73,7 @@ let loggerTouse = (req, res, next) => {
 
 /* ************************************************************************************* */
 
-app.get("/",(req,res)=>{
+app.get("/", (req, res) => {
   res.json("Welcome to Backend Side Chat-Point");
 })
 app.use(loggerTouse);
@@ -87,14 +84,14 @@ app.use("/user", user);
 
 
 
-app.get('/auth/google',passport.authenticate('google', { scope: ['profile','email'] }));
+app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' ,session:false}),function(req, res) {
-    res.redirect("https://stellar-blini-b6e6e0.netlify.app/entry.html")
-  });
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login', session: false }), function (req, res) {
+  res.redirect("https://stellar-blini-b6e6e0.netlify.app/entry.html")
+});
 
 
- /*  ******************************************************************************** */
+/*  ******************************************************************************** */
 
 
 

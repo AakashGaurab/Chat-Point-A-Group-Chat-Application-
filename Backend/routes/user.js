@@ -35,6 +35,24 @@ user.get("/", (req, res) => {
   res.send("welcome user");
 });
 
+/**
+ * @swagger
+ * /userdata:
+ *   get:
+ *     summary: Get user data
+ *     tags:
+ *       - Users
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Successful response
+ *         content:
+ *           text/plain:
+ *             schema:
+ *               type: string
+ *               example: This is the main page for users
+ */
 user.get("/userdata", authenticate, authorise(["User"]), (req, res) => {
   res.send("this is the main page for users");
 });
@@ -64,10 +82,7 @@ user.get("/protected", authenticate, (req, res) => {
   res.send("only verified users can use this");
 });
 
-
-  //create a new User
-
-
+//create a new User
 /**
  * @swagger
  * /user/register:
@@ -95,31 +110,26 @@ user.get("/protected", authenticate, (req, res) => {
  *       400:
  *         description: User already exists or registration failed
  */
-user.post("/register", async (req, res) => { 
-  try{                  //create a new User 
-
-  const { name, email, password } = req.body;
-
-  const already_exists = await UserModel.find({ email });
-  if (already_exists.length > 0) {
-    res.send("User already exists");
-  } else {
-    const hashed_pass = await bcrypt.hash(password, 8)
-    console.log(hashed_pass);
-      req.body.password=hashed_pass;
-      const user = await new UserModel({ name, email,password: req.body.password});
+user.post("/register", async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+    const already_exists = await UserModel.find({ email });
+    if (already_exists.length > 0) {
+      res.send("User already exists");
+    } else {
+      const hashed_pass = await bcrypt.hash(password, 8)
+      console.log(hashed_pass);
+      req.body.password = hashed_pass;
+      const user = await new UserModel({ name, email, password: req.body.password });
       user.save();
-      res.send({msg:`user registered successfully`});
+      res.send({ msg: `user registered successfully` });
+    }
+  } catch (err) {
+    console.log(err);
   }
-}catch(err){
-  console.log(err);
-}
 });
 
-
-  //  login a user
-
-
+//  login a user
 /**
  * @swagger
  * /user/login:
@@ -175,16 +185,12 @@ user.post("/register", async (req, res) => {
  *                   description: Error message
  *                   example: Wrong Credentials
  */
-user.post("/login", async (req, res) => {         //  login a user 
-
+user.post("/login", async (req, res) => {
   const { email, password } = req.body;
-  
   const user = await UserModel.find({ email });
   console.log(user)
-
-  const match = await bcrypt.compare( password,user[0].password);
+  const match = await bcrypt.compare(password, user[0].password);
   console.log(match)
-
   if (match) {
     const token = jwt.sign({ userId: user[0] }, process.env.JWT, {
       expiresIn: "1h",
@@ -192,13 +198,13 @@ user.post("/login", async (req, res) => {         //  login a user
     const ref_token = jwt.sign({ userId: user[0] }, process.env.REF_JWT, {
       expiresIn: "5h",
     });
-
     res.send({ msg: "login successful", token, ref_token });
   } else {
-    res.send({msg:"wrong credential"});
+    res.send({ msg: "wrong credential" });
   }
 });
 
+//  logout user
 /**
  * @swagger
  * /user/logout:
@@ -224,7 +230,6 @@ user.post("/login", async (req, res) => {         //  login a user
  *         $ref: '#/components/responses/UnauthorizedError'
  */
 user.get("/logout", async (req, res) => {
-  //  logout user
   const token = req.headers.authorization;
   if (!token) {
     res.send("Please login first");
@@ -239,6 +244,50 @@ user.get("/logout", async (req, res) => {
 });
 
 // refresh token
+/**
+ * @swagger
+ * /newtoken:
+ *   get:
+ *     summary: Generate new token
+ *     tags:
+ *       - Users
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Successful response
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 msg:
+ *                   type: string
+ *                   example: login successful
+ *                 token:
+ *                   type: string
+ *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMjM0NTY3ODkwIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+ *       401:
+ *         description: Unauthorized - please login first
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 msg:
+ *                   type: string
+ *                   example: please login first
+ *       403:
+ *         description: Forbidden - please login again
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 msg:
+ *                   type: string
+ *                   example: please login again
+ */
 user.get("/newtoken", (req, res) => {
   const refresh_token = req.headers.authorization;
   if (!refresh_token) {
@@ -258,6 +307,4 @@ user.get("/newtoken", (req, res) => {
   }
 });
 
-module.exports = {
-  user,
-};
+module.exports = { user };

@@ -2,6 +2,7 @@ const express = require("express");
 const admin = express.Router();
 const UserModel = require("../Models/user_model");
 const bcrypt = require("bcryptjs");
+admin.use(express.json());
 
 /**
  * @swagger
@@ -22,8 +23,7 @@ const bcrypt = require("bcryptjs");
  *       '404':
  *         description: Error retrieving users
  */
-admin.use(express.json());
-admin.get("/read",async(req,res)=>{
+admin.get("/read", async (req, res) => {
     try {
         let data = await UserModel.find({});
         res.json(data);
@@ -59,20 +59,20 @@ admin.get("/read",async(req,res)=>{
  *       404:
  *         description: Error message if there is an issue inserting the admin into the database.
  */
-admin.post("/create",async(req,res)=>{
+admin.post("/create", async (req, res) => {
     let payload = req.body;
-    let {name,email,password} = payload;
-    bcrypt.hash(password,5,async(err,hash)=>{
-        if(err){
+    let { name, email, password } = payload;
+    bcrypt.hash(password, 5, async (err, hash) => {
+        if (err) {
             res.json("Error Hashing Password");
         }
         else {
             try {
-                await UserModel.insertMany([{name,email,password:hash,role:"Admin"}]) 
+                await UserModel.insertMany([{ name, email, password: hash, role: "Admin" }])
                 res.json("Admin Added Succesfully");
-             } catch (error) {
+            } catch (error) {
                 res.status(404).json(error);
-             }
+            }
         }
     })
 })
@@ -108,12 +108,11 @@ admin.post("/create",async(req,res)=>{
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-admin.put("/update",async(req,res)=>{
-    let {email} = req.body;
-        try {
-        await UserModel.updateOne({email:email},{$set:{role:"Admin"}});
+admin.put("/update", async (req, res) => {
+    let { email } = req.body;
+    try {
+        await UserModel.updateOne({ email: email }, { $set: { role: "Admin" } });
         res.json("User Updated To admin");
-
     } catch (error) {
         res.status(404).json(error);
     }
@@ -139,19 +138,15 @@ admin.put("/update",async(req,res)=>{
  *       404:
  *         description: Error deleting user
  */
-admin.delete("/delete",async(req,res)=>{
-    
+admin.delete("/delete", async (req, res) => {
     let email = req.body.email;
     console.log(email);
-      try {
-        await UserModel.deleteOne({email:email});
+    try {
+        await UserModel.deleteOne({ email: email });
         res.json("User Removed from Data Base");
-      } catch (error) {
+    } catch (error) {
         res.status(404).json("Error deleting user")
-      }
+    }
 })
 
-
-
-
-module.exports={admin};
+module.exports = { admin };
