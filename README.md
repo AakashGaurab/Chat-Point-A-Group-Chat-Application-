@@ -10,7 +10,7 @@ The application is available across different platforms, including mobile and de
     
 <h2>Technology we used</h2>
   
- <ul>
+<ul>
      <li>HTML</li>
      <li>CSS</li>
      <li>JavaScript</li>
@@ -41,14 +41,11 @@ The application is available across different platforms, including mobile and de
 
 <p>The chat page is another example of a well-designed web application. The page features a clean and minimalist design that is perfect for chatting with friends or colleagues. The use of soft colors and simple icons creates a relaxed and inviting atmosphere, encouraging users to stay and chat.
 
-  
-Our chat app allows users to create a personalized chat room and invite others to join the conversation. This feature enables users to have a private chat with their friends, family, or colleagues, without the need to create a separate group chat. Users can choose a room name, and invite other users to join.
-</p>
+Our chat app allows users to create a personalized chat room and invite others to join the conversation. This feature enables users to have a private chat with their friends, family, or colleagues, without the need to create a separate group chat. Users can choose a room name, and invite other users to join.</p>
 
 ![Screenshot (172)](https://github.com/AakashGaurab/responsible-stomach-8778/blob/main/Chat.png)
 
 ![Screenshot (172)](https://github.com/AakashGaurab/responsible-stomach-8778/blob/main/Entry.png)
-
 
 <h2>Admin Page</h2>
 
@@ -57,37 +54,6 @@ Our chat app allows users to create a personalized chat room and invite others t
 
 ![Screenshot (172)](https://github.com/AakashGaurab/responsible-stomach-8778/blob/main/Admin.png)
 
-<!-- Admin Side Routes
-
-Get all users (get Request)
-/admin/read
-
-Create New Admin (post Request)
-/admin/create (pass in body name, email, password)
-
-update a user from user role to admin (Put Request)
-/admin/update (pass in body email of the user)
-
-delete a user (delete Request)
-/admin/delete (pass in body email of the user)
-
-User side Routes
-
-To welcome user (Get Request)
-/user/
-
-To register or signup (Post Request)
-/user/register (pass in body name, email, password)
-
-For login (Post Request)
-/user/login (pass in body email, password)
-
-For logout (Get Request)
-/user/logout (pass the token in headers)
-
-To generate new token (Get Request)
-/user/newtoken (pass the refresh token in headers) -->
-    
     Admin Side Routes:
 
 <li>Get all users: This route is a GET request that retrieves all users and returns them as a response. The route path is /admin/read.</li>
@@ -109,4 +75,4 @@ Deployed Backend Link: https://chatpointbackend2-production-56db.up.railway.app/
 
 Deployed Frontend Link: https://incredible-selkie-67b697.netlify.app/signup.html
 
-
+Swagger Documentation Link: http://localhost:3500/api-docs/

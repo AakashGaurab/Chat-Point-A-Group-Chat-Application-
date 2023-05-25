@@ -1,7 +1,5 @@
 const jwt = require("jsonwebtoken");
-
 require("dotenv").config();
-
 const { createClient } = require("redis");
 
 const myredis = createClient({
@@ -13,7 +11,6 @@ myredis.on("error", (err) => console.log("Redis Client Error", err));
 const authenticate = async (req, res, next) => {
   const token = req.headers.authorization;
   await myredis.connect();
-
   const red_token = await myredis.get("token");
   await myredis.disconnect();
   if (!token) {
@@ -32,6 +29,4 @@ const authenticate = async (req, res, next) => {
   }
 };
 
-module.exports = {
-  authenticate,
-};
+module.exports = { authenticate };

@@ -100,3 +100,18 @@ body {
     margin-right: 0;
   }
 }
+.meta {
+  font-weight: 16px;
+  font-weight: 600;
+  color: rgb(55, 168, 206);
+  text-transform: capitalize;
+}
+.meta span {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(135, 145, 149);
+  float: right;
+}
+.textColor {
+  margin-bottom: 15px;
+}
